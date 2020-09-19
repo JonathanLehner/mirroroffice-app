@@ -58,7 +58,7 @@ class Wrapper extends React.Component {
             const { caller, target, target2, target3 } = this.refs;
             VideoCallServices.answerCall({
                 localElement: caller,
-                remoteElement: this.getTarget(),
+                remoteElement: this.refs.target,
                 audio: true,
                 video: false
             });
@@ -86,7 +86,7 @@ class Wrapper extends React.Component {
         VideoCallServices.call({
             id: showChat,
             localElement: this.refs.caller,
-            remoteElement: this.getTarget(),
+            remoteElement: this.refs.target,
             audio: true,
             video: false
         });
