@@ -4,6 +4,13 @@ import { VideoCallServices } from 'meteor/elmarti:video-chat';
 import Call from './Call.jsx';
 
 class Wrapper extends React.Component {
+
+    getCaller = () => {
+        const targetID = document.getElementById("targetID").value;
+        const target = targetID == 1 ? this.refs.caller : (targetID == 2) ? this.refs.caller2 : this.refs.caller3;
+        return target;
+    }
+
     getTarget = () => {
         const targetID = document.getElementById("targetID").value;
         const target = targetID == 1 ? this.refs.target : (targetID == 2) ? this.refs.target2 : this.refs.target3;
@@ -90,6 +97,8 @@ class Wrapper extends React.Component {
             <div>
                 <Call callUser={this.callUser.bind(this)}/>
                 <video id="caller" ref="caller" style={{width: "1px", height: "1px"}} />
+                <video id="caller2" ref="caller2" style={{width: "1px", height: "1px"}} />
+                <video id="caller3" ref="caller3" style={{width: "1px", height: "1px"}} />
                 <video id="target" ref="target" style={{width: "1px", height: "1px"}}/>
                 <video id="target2" ref="target2" style={{width: "1px", height: "1px"}}/>
                 <video id="target3" ref="target3" style={{width: "1px", height: "1px"}}/>

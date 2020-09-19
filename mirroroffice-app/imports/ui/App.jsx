@@ -49,6 +49,7 @@ export const App = () => {
                 min="1" 
                 max="3" 
                 step="1"
+                defaultValue={1}
                 />
               <button onClick={()=>setVolume(document.getElementById("volume").value)}>update volume</button>
             </div>
