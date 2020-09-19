@@ -43,13 +43,13 @@ class Wrapper extends React.Component {
                 showChat: _id
             });
             const { caller, target } = this.refs;
-            alert("receiving call");
             VideoCallServices.answerCall({
                 localElement: caller,
                 remoteElement: target,
                 audio: true,
                 video: true
             });
+            alert("answered call");
             //VideoCallServices.rejectCall();
         };
         VideoCallServices.onTerminateCall = () => {
