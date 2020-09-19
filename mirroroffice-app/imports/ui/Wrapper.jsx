@@ -32,19 +32,19 @@ class Wrapper extends React.Component {
         VideoCallServices.setOnError((err, data) => {
             switch (err.name) {
                 case "NotFoundError":
-                    alert("Could not find webcam");
+                    console.log("Could not find webcam");
                     VideoCallServices.endCall();
                     break;
                 case "NotAllowedError":
-                    alert("Could not access media device");
+                    console.log("Could not access media device");
                     VideoCallServices.endCall();
                     break;
                 case "NotReadableError":
-                    alert("Could not access your device.");
+                    console.log("Could not access your device.");
                     VideoCallServices.endCall();
                     break;
                 case "SecurityError":
-                    alert("Media support is disabled in this browser.");
+                    console.log("Media support is disabled in this browser.");
                     VideoCallServices.endCall();
                     break;
                 default:
@@ -62,14 +62,14 @@ class Wrapper extends React.Component {
                 audio: true,
                 video: false
             });
-            alert("answered call");
+            console.log("answered call");
             //VideoCallServices.rejectCall();
         };
         VideoCallServices.onTerminateCall = () => {
-            alert("Call ended");
+            console.log("Call ended");
         };
         VideoCallServices.onCallRejected = () => {
-            alert("Call rejected");
+            console.log("Call rejected");
         };
         this.state = {
             showChat: false
@@ -90,7 +90,7 @@ class Wrapper extends React.Component {
             audio: true,
             video: false
         });
-        alert("called "+showChat);
+        console.log("called "+showChat);
     }
     render() {
         return (
