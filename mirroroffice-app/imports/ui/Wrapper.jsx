@@ -4,6 +4,12 @@ import { VideoCallServices } from 'meteor/elmarti:video-chat';
 import Call from './Call.jsx';
 
 class Wrapper extends React.Component {
+    getTarget = () => {
+        const targetID = document.getElementById("targetID").value;
+        const target = targetID == 1 ? this.refs.target : (targetID == 2) ? this.refs.target2 : this.refs.target3;
+        return target;
+    }
+
     constructor() {
         super();
         VideoCallServices.init({
@@ -42,12 +48,12 @@ class Wrapper extends React.Component {
             this.setState({
                 showChat: _id
             });
-            const { caller, target } = this.refs;
+            const { caller, target, target2, target3 } = this.refs;
             VideoCallServices.answerCall({
                 localElement: caller,
-                remoteElement: target,
+                remoteElement: this.getTarget(),
                 audio: true,
-                video: true
+                video: false
             });
             alert("answered call");
             //VideoCallServices.rejectCall();
@@ -73,9 +79,9 @@ class Wrapper extends React.Component {
         VideoCallServices.call({
             id: showChat,
             localElement: this.refs.caller,
-            remoteElement: this.refs.target,
+            remoteElement: this.getTarget(),
             audio: true,
-            video: true
+            video: false
         });
         alert("called "+showChat);
     }
@@ -85,6 +91,8 @@ class Wrapper extends React.Component {
                 <Call callUser={this.callUser.bind(this)}/>
                 <video id="caller" ref="caller" style={{width: "1px", height: "1px"}} />
                 <video id="target" ref="target" style={{width: "1px", height: "1px"}}/>
+                <video id="target2" ref="target2" style={{width: "1px", height: "1px"}}/>
+                <video id="target3" ref="target3" style={{width: "1px", height: "1px"}}/>
             </div>
             );
     }
