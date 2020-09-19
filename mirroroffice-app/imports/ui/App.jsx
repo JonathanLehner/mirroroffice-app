@@ -4,6 +4,7 @@ import { Info } from './Info.jsx';
 import Login from './Login.jsx';
 import Wrapper from "./Wrapper.jsx";
 import { withTracker } from 'meteor/react-meteor-data';
+import OfficeBox from "./OfficeBox.jsx";
 
 export const App = () => {
     setVolume = (volume) => {
@@ -30,6 +31,9 @@ export const App = () => {
               </ul>
             </div>
             <div>
+              <OfficeBox />
+            </div>
+            <div style={{padding: "10px", opacity: "0.5"}}>
               <Tracked_ChatBox />
             </div>
             <div>
