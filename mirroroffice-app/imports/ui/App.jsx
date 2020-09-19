@@ -61,12 +61,13 @@ export const App = () => {
 }
 
 const ChatBox = (props) => {
-  const chatMessages = props.chatMessages || [];
+  const chatMessages = props.chatMessages.pop() || {};
   return (
     <div>
-      {chatMessages.map((msg) => {
+      <div>{chatMessages.msg}</div>
+      {/*chatMessages.map((msg) => {
         return <div>{msg}</div>;
-      })}
+      })*/}
     </div>
   )
 }
