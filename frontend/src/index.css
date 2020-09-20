@@ -8,11 +8,11 @@ body {
   /*-webkit-overflow-scrolling: touch;
   overflow: hidden;*/
 }
-
+/*
 html {
   position:fixed;
 }
-
+*/
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

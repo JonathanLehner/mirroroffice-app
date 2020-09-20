@@ -49,14 +49,24 @@ function MapTile(props) {
           html.style.top = `${centerHeight}px`;
           let direction = "NORTH";
           let newPos = [x * SIZE, y * SIZE];
+          const oldDir = store.getState().user.direction[1]
+          const oldSpr = store.getState().user.spriteLocation[1]
           store.dispatch({
             type: "MOVE_USER",
             payload: {
-              position: newPos,
+              position: [newPos[0],newPos[1]],
+              direction: [direction,oldDir],
+              spriteLocation:[`${SIZE}px ${SIZE * 3}px`, oldSpr],
+            },
+          });
+          /*store.dispatch({
+            type: "MOVE_USER2",
+            payload: {
+              position: [newPos[0],newPos[1]-40],
               direction,
               spriteLocation: `${SIZE}px ${SIZE * 3}px`,
             },
-          });
+          })*/
         }
       }}
       style={{

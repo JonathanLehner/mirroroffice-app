@@ -8,10 +8,10 @@ function User(props) {
     <div
       style={{
         position: 'absolute',
-        top: props.position[1],
-        left: props.position[0],
+        top: props.position[props.id][1],
+        left: props.position[props.id][0],
         backgroundImage: `url('${walkSprite}')`,
-        backgroundPosition: props.spriteLocation,
+        backgroundPosition: props.spriteLocation[props.id],
         width: '40px',
         height: '40px',
       }}
