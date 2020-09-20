@@ -77,7 +77,7 @@ export default function handleMovement(user) {
   }
 
   function handleKeyDown(e) {
-    e.preventDefault();
+    //e.preventDefault();
 
     switch (e.keyCode) {
       case 37:

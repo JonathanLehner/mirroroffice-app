@@ -57,7 +57,7 @@ export const App = () => {
                   type="text"
                   style={{width: "100px"}}
                   value={value}
-                  onChange={(val)=>setValue(val)}
+                  onChange={(event)=>{setValue(event.target.value)}}
                   />
               <button onClick={()=>this.addToChat()}>Send message to chat</button>
             </div>
