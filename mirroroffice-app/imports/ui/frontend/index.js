@@ -86,8 +86,8 @@ function handleTouchMove(evt) {
     yDown = null;
 }
 
-const BoxedOffice = () => <Provider store={store}>
-  <App />
+const BoxedOffice = (props) => <Provider store={store}>
+  <App setPositions={props.setPositions}/>
 </Provider>;
 
 export default BoxedOffice;

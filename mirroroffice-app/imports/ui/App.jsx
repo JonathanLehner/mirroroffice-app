@@ -7,6 +7,9 @@ import { withTracker } from 'meteor/react-meteor-data';
 import OfficeBox from "./OfficeBox.jsx";
 
 export const App = () => {
+    [positions, setPositions] = useState(99);
+    [value, setValue] = useState("Keep hacking!");
+
     setVolume = (volume) => {
       var audio = document.getElementById('caller'); 
       audio.volume = volume; 
@@ -31,9 +34,9 @@ export const App = () => {
               </ul>
             </div>
             <div>
-              <OfficeBox />
+              <OfficeBox setPositions={setPositions}/>
             </div>
-            <div style={{padding: "10px", opacity: "0.5"}}>
+            <div style={{padding: "10px", opacity: "0.9", position: "absolute", zIndex: "9999999999", background: "white", bottom: "-120px"}}>
               <Tracked_ChatBox />
             </div>
             <div>
@@ -44,13 +47,17 @@ export const App = () => {
                 min="0" 
                 max="1" 
                 step="0.1"
+                defaultValue="0.5"
                 />
               <button onClick={()=>setVolume(document.getElementById("volume").value)}>update volume</button>
             </div>
             <div>
               <input 
                   id="chatInput"
+                  type="text"
                   style={{width: "100px"}}
+                  value={value}
+                  onChange={(val)=>setValue(val)}
                   />
               <button onClick={()=>this.addToChat()}>Send message to chat</button>
             </div>
