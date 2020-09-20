@@ -53,6 +53,17 @@ export const App = () => {
             </div>
             <div>
               <input 
+                id="playerID"
+                style={{width: "100px"}}
+                type="number" 
+                min="0" 
+                max="1" 
+                step="1"
+                defaultValue="0"
+                />
+            </div>
+            <div>
+              <input 
                   id="chatInput"
                   type="text"
                   style={{width: "100px"}}

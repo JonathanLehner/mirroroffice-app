@@ -2,7 +2,7 @@ const initialState = {
   position: [360, 0],
   spriteLocation: '0px 0px',
   direction: 'south',
-  walkIndex: 0,
+  walkIndex: 0
 }
 
 const userReducer = (state=initialState, action) => {
