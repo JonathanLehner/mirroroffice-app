@@ -19,8 +19,8 @@ function Office(props) {
       }}
     >
       <Map />
-      <User playerID={0} />
-      <User playerID={1} />
+      <User id={0}/>
+      <User id={1}/>
     </div>
   )
 }

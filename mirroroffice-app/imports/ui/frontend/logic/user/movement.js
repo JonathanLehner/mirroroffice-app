@@ -58,18 +58,28 @@ export default function handleMovement(user) {
     let centerHeight = window.innerHeight/2 - y
     html.style.left = `${centerWidth}px`
     html.style.top = `${centerHeight}px`
-    store.dispatch({
+
+    /*store.dispatch({
       type: "MOVE_USER",
       payload: {
         position: newPos,
         direction,
         spriteLocation: getSpriteLocation(direction),
       },
-    });
+    });*/
+    const oldDir = store.getState().user.direction[0]
+    store.dispatch({
+      type: "MOVE_USER2",
+      payload: {
+        position: [newPos[0],newPos[1]],
+        direction: [oldDir,direction],
+        spriteLocation: [getSpriteLocation(oldDir),getSpriteLocation(direction)],
+      },
+    })
   }
 
   function attemptMove(direction) {
-    const oldPos = store.getState().user.position;
+    const oldPos = store.getState().user.position[1];
     const newPos = getNewPosition(oldPos, direction);
 
     if (observeBoundaries(oldPos, newPos) && observeImpassable(oldPos, newPos))
